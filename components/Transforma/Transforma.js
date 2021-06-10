@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Container, Buttons, Input, Dados, Anuncio } from './Style';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 function Transforma() {
 	const [texto, setTexto] = useState('');
@@ -11,12 +12,6 @@ function Transforma() {
 	}
 
 	function capslock() {
-		// if (texto === '') {
-		// 	input.style.background = 'red';
-		// } else {
-		// 	setTexto(texto.toUpperCase()); //Transformar em capslock
-		// 	input.style.textTransform = 'none';
-		// }
 		setTexto(texto.toUpperCase()); //Transformar em capslock
 		input.current.style.textTransform = 'none';
 	}
@@ -28,13 +23,6 @@ function Transforma() {
 	function capitalizar() {
 		input.current.style.textTransform = 'capitalize';
 	}
-
-	function copiar() {
-		input.current.setSelectionRange(0, 9999); //Não está funcionando
-		document.execCommand('copy');
-	}
-
-	console.log(texto);
 	function clear() {
 		setTexto('');
 		input.current.style.fontStyle = 'normal';
@@ -51,7 +39,9 @@ function Transforma() {
 				</button>
 				<button onClick={lowercase}>Minúscula</button>
 				<button onClick={capitalizar}>Maiúsculas</button>
-				<button onClick={copiar}>Copiar</button>
+				<CopyToClipboard text={texto}>
+					<button>Copiar</button>
+				</CopyToClipboard>
 				<button onClick={clear}>Limpar</button>
 			</Buttons>
 			<Input>
@@ -65,12 +55,7 @@ function Transforma() {
 			<Dados>
 				<p>Caractéres: {texto.length}</p>
 			</Dados>
-			<Anuncio>
-				<script
-					data-ad-client="ca-pub-2435224295175755"
-					async
-					src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-			</Anuncio>
+			<Anuncio></Anuncio>
 		</Container>
 	);
 }
