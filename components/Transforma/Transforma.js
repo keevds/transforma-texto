@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Container, Buttons, Input, Dados } from './Style';
+import { Container, Buttons, Input, Dados, Anuncio } from './Style';
 
 function Transforma() {
 	const [texto, setTexto] = useState('');
@@ -65,6 +65,12 @@ function Transforma() {
 			<Dados>
 				<p>Caractéres: {texto.length}</p>
 			</Dados>
+			<Anuncio>
+				<script
+					data-ad-client="ca-pub-2435224295175755"
+					async
+					src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			</Anuncio>
 		</Container>
 	);
 }

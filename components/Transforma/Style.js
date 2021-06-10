@@ -45,3 +45,5 @@ export const Dados = styled.div`
 	width: 40vw;
 	text-align: start;
 `;
+
+export const Anuncio = styled.div``;
